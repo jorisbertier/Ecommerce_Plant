@@ -1,8 +1,11 @@
-import Login from "@/component/login"
+import Login from "@/components/login"
 
 function LoginPage() {
     return (
-        <Login/>
+        <div className="h-96 m-28">
+            <Login/>
+
+        </div>
     )
 }
 
