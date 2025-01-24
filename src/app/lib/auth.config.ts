@@ -7,6 +7,9 @@ export default {
         Github({
             clientId: process.env.GITHUB_ID,
             clientSecret: process.env.GITHUB_SECRET,
+            authorization: {
+                params: { prompt: "login" },
+            },
         }),
         Google({
             clientId: process.env.GOOGLE_ID,
