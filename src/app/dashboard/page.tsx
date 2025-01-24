@@ -8,8 +8,9 @@ import Link from "next/link"
 function Dashboard() {
 
     const { data: session} = useSession()
+    console.log(session)
     return (
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-5 mt-20">
         {session?.user ? (
             <div className="flex flex-col gap-6">
             {session?.user?.image && (
