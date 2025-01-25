@@ -13,7 +13,7 @@ export default function Home() {
           <p>With planting you will be able to find your dream plant and Planting will find the best choice of plants for your home decoration to make it look fresh and more natural</p>
           <Button variant='greenbg' size='lg'>Explore more</Button>
         </div>
-        <div className="w-3/5 h-4/5 flex justify-center relative">
+        <div className="w-3/5 flex justify-center relative">
 
         {/* <div className="w-60 h-14 flex justify-around items-center shadow-lg rounded-lg absolute top-0 right-20 z-10">
           <Image src="/cactus.jpeg" width={40} height={40} alt="cactus" className="object-contain rounded-md"/>
