@@ -63,19 +63,21 @@ function FormPlant() {
             },
             body: JSON.stringify({
                 title: values.title,
-                price: Number(values.price),
+                price: values.price,
                 image: String(values.image),
                 userEmail: session.user.email,  
             }),
             })
         
             const data = await response.json()
+            form.reset()
+            window.location.href = '/dashboard'
             return data
-
         } catch(error) {
             console.error("Error:", error)
         }
     }
+
     return (
         <>
             <Card className="w-[450px] p-6 text-2xl">

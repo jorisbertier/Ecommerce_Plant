@@ -3,6 +3,7 @@
 import Link from "next/link"
 import CardPlant from "@/components/CardPlant";
 import { useEffect, useState } from "react";
+import ClipLoader from "react-spinners/ClipLoader";
 
 interface Plant {
     id: number;
@@ -14,6 +15,7 @@ interface Plant {
 function Dashboard() {
 
     const [ plants, setPlants] = useState<Plant[]>([])
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         const fetchPlants = async () => {
@@ -23,10 +25,24 @@ function Dashboard() {
                 setPlants(data)
             }catch(error) {
                 console.log(error)
+            }finally {
+                setIsLoading(false)
             }
         }
         fetchPlants()
     }, [])
+    if(isLoading) {
+        return(
+            <div className="flex gap-5 w-full h-screen justify-center items-center">
+                    <ClipLoader
+                        color={'#000'}
+                        size={150}
+                        aria-label="Loading Spinner"
+                        data-testid="loader"
+                    />
+            </div>
+        )
+    }
 
     const plantsFormatted = Object.values(plants);
     console.log(typeof plantsFormatted)

@@ -31,7 +31,7 @@ function CardPlant({price, src, title} : Props) {
         setImageSrc("/monstera2.jpg");
     };
     return (
-        <div className=" bg-red-400 rounded-3xl shadow-xl" style={{position: "relative", height: 250, width: '200px', aspectRatio: '1 / 1'}}>
+        <div className="rounded-3xl shadow-xl" style={{position: "relative", height: 250, width: '200px', aspectRatio: '1 / 1'}}>
             <div style={{position: "relative", height: '100%', width: '200px'}}>
                 <Image width={0} height={0} sizes ="100vh" style={{height: '100%', width: '100%' }} onError={handleImageError} src={`${imageSrc}`} alt="plant" className="rounded-3xl object-fit w-20"/>
             </div>
