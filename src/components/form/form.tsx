@@ -17,8 +17,6 @@ import { Input } from "@/components/ui/input"
 import { Card, CardHeader } from "@/components/ui/card"
 import { useSession } from "next-auth/react"
 
-
-
 const formSchema = z.object({
     title: z.string().min(5, {
     message: "Title must be at least 5 characters.",
@@ -38,11 +36,8 @@ const formSchema = z.object({
 
 
 function FormPlant() {
-    // console.log(email)
 
     const { data: session} = useSession()
-    console.log(session)
-
 
     const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -53,34 +48,6 @@ function FormPlant() {
     },
     })
 
-    // async function onSubmit(values: z.infer<typeof formSchema>) {
-
-    // if (!email) {
-    //     console.error("User is not authenticated")
-    //     return
-    // }
-
-    // const user = await prisma.user.findUnique({
-    //     where: {
-    //     email: email,
-    //     },
-    // })
-
-    // if(!user) {
-    //     console.log('User not found')
-    //     return
-    // }
-    // console.log('ID',user.id)
-    // // const plant = await prisma.plant.create({
-    // //   data: {
-    // //     title: values.title,
-    // //     price: Number(values.price),
-    // //     image: String(values.image),
-    // //     userId: 'dkdkkd', 
-    // //   },
-    // // })
-    // console.log(values.title)
-    // }
     async function onSubmit(values: z.infer<typeof formSchema>) {
 
         if (!session || !session.user || !session.user.email) {
