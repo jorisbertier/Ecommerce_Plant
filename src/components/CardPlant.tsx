@@ -29,7 +29,7 @@ function CardPlant({price, src, title} : Props) {
 
     const handleImageError = () => {
         setImageSrc("/monstera2.jpg");
-
+    };
     return (
         <div className=" bg-red-400 rounded-3xl shadow-xl" style={{position: "relative", height: '100%', width: '200px'}}>
             <div style={{position: "relative", height: '100%', width: '200px'}}>

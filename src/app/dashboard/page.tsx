@@ -1,6 +1,5 @@
 "use client"
 
-import { useSession } from "next-auth/react"
 import Link from "next/link"
 import CardPlant from "@/components/CardPlant";
 import { useEffect, useState } from "react";
@@ -13,8 +12,6 @@ interface Plant {
 }
 
 function Dashboard() {
-
-    const { data: session} = useSession()
 
     const [ plants, setPlants] = useState<Plant[]>([])
 
