@@ -1,10 +1,6 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
 import { useSession } from "next-auth/react"
-import { signOut } from "next-auth/react"
-import { Heart } from 'lucide-react';
-import Image from "next/image"
 import Link from "next/link"
 import CardPlant from "@/components/CardPlant";
 
