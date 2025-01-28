@@ -4,6 +4,7 @@ import Link from "next/link"
 import CardPlant from "@/components/CardPlant";
 import { useEffect, useState } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
+import { Button } from "@/components/ui/button";
 
 interface Plant {
     id: number;
@@ -44,12 +45,16 @@ function Dashboard() {
         )
     }
 
-    const plantsFormatted = Object.values(plants);
-    console.log(typeof plantsFormatted)
     return (
         <div className="flex flex-col gap-5 mt-20">
-            <h1>Plant Created by COMMUNITY</h1>
-            <Link href="/create">Create a plant</Link>
+            <h1 className="text-5xl font-extrabold text-center p-4">
+                Plant Created by COMMUNITY
+                </h1>
+            <div className="w-full flex justify-center">
+                <Link href="/create">
+                    <Button variant='green'>Create a plant</Button>
+                </Link>
+            </div>
             {plants.length == 0 && <div className="w-full flex justify-center"><h1>No plants added for the community</h1></div>}
             <div className="w-full flex flex-wrap justify-around mb-10 gap-20">
                 {Object.values(plants.map(((plant )=> (

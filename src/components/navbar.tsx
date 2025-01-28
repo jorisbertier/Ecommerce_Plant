@@ -18,7 +18,13 @@ function Navbar() {
           className='object-contain rounded-full' 
         />
       </div>
-      
+      <ul className="flex gap-10 items-center">
+        <Link href="/dashboard">
+        <li className="text-lg font-semibold text-black hover:text-custom-green transition-colors duration-300 ease-in-out cursor-pointer">Dashboard</li>
+        </Link>
+        <li className="text-lg font-semibold text-black hover:text-custom-green transition-colors duration-300 ease-in-out cursor-pointer">Profile</li>
+        <li className="text-lg font-semibold text-black hover:text-custom-green transition-colors duration-300 ease-in-out cursor-pointer">Contact</li>
+      </ul>
       <div className='flex items-center space-x-6'>
         <ClientNav/>
       </div>
