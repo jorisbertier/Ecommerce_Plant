@@ -7,6 +7,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 import { Button } from "@/components/ui/button";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import withAuth from "@/components/withauth";
 
 interface Plant {
     id: number;
@@ -20,14 +21,14 @@ function Dashboard() {
     const [ plants, setPlants] = useState<Plant[]>([])
     const [isLoading, setIsLoading] = useState(true)
 
-    const { data: session, status } = useSession();
-    const router = useRouter();
+    // const { data: session, status } = useSession();
+    // const router = useRouter();
   
-    useEffect(() => {
-      if (status === 'unauthenticated') {
-        router.replace('/login');
-      }
-    }, [status, router]);
+    // useEffect(() => {
+    //   if (status === 'unauthenticated') {
+    //     router.replace('/login');
+    //   }
+    // }, [status, router]);
 
     useEffect(() => {
         const fetchPlants = async () => {
@@ -55,13 +56,13 @@ function Dashboard() {
             </div>
         )
     }
-    if (status === 'loading') {
-        return <p>Chargement...</p>; // Empêche le flash de contenu
-      }
+    // if (status === 'loading') {
+    //     return <p>Chargement...</p>; // Empêche le flash de contenu
+    //   }
     
-      if (!session) {
-        return null; // Évite d'afficher du contenu non sécurisé
-      }
+    //   if (!session) {
+    //     return null; // Évite d'afficher du contenu non sécurisé
+    //   }
     
     
     return (
@@ -84,4 +85,4 @@ function Dashboard() {
     )
 }
 
-export default Dashboard
+export default withAuth(Dashboard)

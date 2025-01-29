@@ -2,20 +2,22 @@
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { useSession } from 'next-auth/react';
 
 const withAuth = (WrappedComponent: any) => {
   return function ProtectedRoute(props: any) {
-    const router = useRouter();
-    const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
 
+    const { data: session, status } = useSession();
+    const router = useRouter();
+  
     useEffect(() => {
-      if (!token) {
+      if (status === 'unauthenticated') {
         router.replace('/login');
       }
-    }, [token]);
+    }, [status, router]);
 
-    if (!token) {
-      return null; // Empêche l'affichage de la page le temps de rediriger
+    if (!session) {
+      return null;
     }
 
     return <WrappedComponent {...props} />;
